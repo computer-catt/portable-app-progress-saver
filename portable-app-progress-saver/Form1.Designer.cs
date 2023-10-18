@@ -39,8 +39,13 @@
             this.appdatapath = new System.Windows.Forms.TextBox();
             this.appdatapathbrowse = new System.Windows.Forms.Button();
             this.openfile = new System.Windows.Forms.OpenFileDialog();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -58,6 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 113);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(665, 290);
@@ -82,7 +88,7 @@
             // 
             // apppathlabel
             // 
-            this.apppathlabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.apppathlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.apppathlabel.AutoSize = true;
             this.apppathlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.apppathlabel.Location = new System.Drawing.Point(4, 16);
@@ -101,7 +107,7 @@
             // 
             // appdatalabel
             // 
-            this.appdatalabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.appdatalabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.appdatalabel.AutoSize = true;
             this.appdatalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appdatalabel.Location = new System.Drawing.Point(4, 47);
@@ -112,7 +118,7 @@
             // 
             // exepath
             // 
-            this.exepath.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.exepath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.exepath.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.exepath.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exepath.Location = new System.Drawing.Point(106, 6);
@@ -134,7 +140,7 @@
             // 
             // appdatapath
             // 
-            this.appdatapath.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.appdatapath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.appdatapath.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.appdatapath.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appdatapath.Location = new System.Drawing.Point(132, 43);
@@ -158,12 +164,58 @@
             // 
             this.openfile.Filter = "Common Executables|*.EXE|All files|*.*";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox1.Location = new System.Drawing.Point(4, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(97, 20);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "Delete Files";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.checkBox2);
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Location = new System.Drawing.Point(683, 113);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(105, 290);
+            this.panel2.TabIndex = 4;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox2.Location = new System.Drawing.Point(3, 29);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(104, 20);
+            this.checkBox2.TabIndex = 3;
+            this.checkBox2.Text = "Manual Save";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(3, 241);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 46);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Generate file(s)";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 413);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
@@ -173,6 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -190,6 +244,10 @@
         private System.Windows.Forms.Button appdatapathbrowse;
         private System.Windows.Forms.TextBox appdatapath;
         private System.Windows.Forms.OpenFileDialog openfile;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
