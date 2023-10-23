@@ -1,12 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace portable_app_progress_saver
+namespace PAPS
 {
+    class Functions
+    {
+        public static string GetLastDirectoryName(string path)
+        {
+            string[] pathParts = path.TrimEnd(Path.DirectorySeparatorChar).Split(Path.DirectorySeparatorChar);
+            if (pathParts.Length > 0)
+                return pathParts[pathParts.Length - 1];
+            return null;
+        }
+
+        public static void CopyFilesRecursively(string sourcePath, string targetPath)
+        {
+            if (!Directory.Exists(targetPath))
+                Directory.CreateDirectory(targetPath);
+            foreach (string dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+                Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
+            foreach (string newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+                File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
+        }
+    }
+
+
     internal class openfolder
     {
         private readonly List<string> _resultPaths = new List<string>();
