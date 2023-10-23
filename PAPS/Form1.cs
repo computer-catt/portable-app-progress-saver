@@ -4,7 +4,6 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
-//using IWshRuntimeLibrary;
 
 namespace PAPS
 {
@@ -29,7 +28,6 @@ namespace PAPS
         private string CreateShortcut(string exe, string path, string iconloc, string arguments)
         {
             IWshRuntimeLibrary.WshShell shell = new IWshRuntimeLibrary.WshShell();
-
             string shortcutpath = path + "\\" + Functions.GetLastDirectoryName(iconloc).Split('.')[0] + ".lnk";
             IWshRuntimeLibrary.IWshShortcut shortcut = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(shortcutpath);
             shortcut.Arguments = arguments;
@@ -65,9 +63,25 @@ namespace PAPS
             log("Delete files after app close: " + Fbimode.Checked);
             log("Replacing variables...");
             string appdatafolder = appdatapath.Text.Replace(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "%UserProfile%");
-            string exepathv2 = exepath.Text.Replace(Directory.GetDirectoryRoot(exepath.Text), "%nyaroot%");
+            string exepathv2 = exepath.Text.Replace(Directory.GetDirectoryRoot(exepath.Text), "%nyapath%");
             log("creating shortcut");
-            if (File.Exists(CreateShortcut(Path.GetFullPath(Process.GetCurrentProcess().ProcessName),Path.GetDirectoryName(exepath.Text), exepath.Text, "\"" + exepathv2 + "\" \"" + appdatafolder + "\" \"" + Fbimode.Checked.ToString() + "\"")))
+            string[] arguments = 
+                { 
+                exepathv2,
+                appdatafolder,
+                Fbimode.Checked.ToString(),
+                DelayNum.Text,
+                Pause.Checked.ToString(),
+                consoletoggle.Checked.ToString()
+                };
+
+            string args = "";
+            foreach (string arg in arguments)
+            {
+                args += "\""+ arg + "\" ";
+            }
+
+            if (File.Exists(CreateShortcut(Path.GetFullPath(Process.GetCurrentProcess().ProcessName), Path.GetDirectoryName(exepath.Text), exepath.Text, args)))
             {
                 log("shortcut created");
             }
@@ -98,6 +112,12 @@ namespace PAPS
             {
                 appdatapath.ForeColor = Directory.Exists(appdatapath.Text) ? Color.Green : Color.Red;
             }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

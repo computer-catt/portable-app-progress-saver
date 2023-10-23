@@ -30,6 +30,10 @@ namespace PAPS
             }
             else
             {
+                if (!Convert.ToBoolean(args[5]))
+                {
+                    ShowWindow(GetConsoleWindow(), 0);
+                }
                 string exepath = args[0].Replace("%nyapath%", Directory.GetDirectoryRoot(Directory.GetCurrentDirectory()));
                 string appdatapath = args[1];
                 string appname = Functions.GetLastDirectoryName(appdatapath);
@@ -56,14 +60,14 @@ namespace PAPS
                         Directory.Delete(appdatapath, true);
                     Functions.CopyFilesRecursively(backupfolder, appdatapath);
                 }
-                Thread.Sleep(5000);
+                Thread.Sleep(500);
                 Console.WriteLine("starting: " + Functions.GetLastDirectoryName(exepath));
                 Process asparagus = new Process();
                 asparagus.StartInfo.FileName = exepath;
                 asparagus.StartInfo.WorkingDirectory = root;
                 asparagus.Start();
                 asparagus.WaitForExit();
-                Thread.Sleep(2000);
+                Thread.Sleep(int.Parse(args[3]));
                 Console.WriteLine("Saving app data.");
                 Functions.CopyFilesRecursively(appdatapath, backupfolder);
                 Console.WriteLine("App data saved.");
@@ -73,7 +77,12 @@ namespace PAPS
                     if (Directory.Exists(appdatapath))
                         Directory.Delete(appdatapath, true);
                 }
-
+                if (Convert.ToBoolean(args[4]))
+                {
+                    ShowWindow(GetConsoleWindow(), 5);
+                    Console.WriteLine("Pause specified.");
+                    Console.ReadLine();
+                }
             }
         }
     }

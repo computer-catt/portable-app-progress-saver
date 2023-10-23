@@ -36,12 +36,15 @@
             this.appdatapath = new System.Windows.Forms.TextBox();
             this.exepath = new System.Windows.Forms.TextBox();
             this.appdatalabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.apppathlabel = new System.Windows.Forms.Label();
             this.openfile = new System.Windows.Forms.OpenFileDialog();
             this.Fbimode = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DelayNum = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.Pause = new System.Windows.Forms.CheckBox();
+            this.consoletoggle = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,7 +81,6 @@
             this.panel1.Controls.Add(this.appdatapath);
             this.panel1.Controls.Add(this.exepath);
             this.panel1.Controls.Add(this.appdatalabel);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.apppathlabel);
             this.panel1.Location = new System.Drawing.Point(115, 12);
             this.panel1.Name = "panel1";
@@ -142,14 +144,6 @@
             this.appdatalabel.TabIndex = 3;
             this.appdatalabel.Text = "App Data Path:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
-            this.label2.TabIndex = 3;
-            // 
             // apppathlabel
             // 
             this.apppathlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -180,12 +174,34 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.DelayNum);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.consoletoggle);
+            this.panel2.Controls.Add(this.Pause);
             this.panel2.Controls.Add(this.Fbimode);
             this.panel2.Location = new System.Drawing.Point(683, 113);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(105, 290);
             this.panel2.TabIndex = 4;
+            // 
+            // DelayNum
+            // 
+            this.DelayNum.Location = new System.Drawing.Point(3, 95);
+            this.DelayNum.Name = "DelayNum";
+            this.DelayNum.Size = new System.Drawing.Size(100, 22);
+            this.DelayNum.TabIndex = 6;
+            this.DelayNum.Text = "2000";
+            this.DelayNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Delay (ms):";
             // 
             // button1
             // 
@@ -199,6 +215,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Pause
+            // 
+            this.Pause.AutoSize = true;
+            this.Pause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Pause.Location = new System.Drawing.Point(4, 26);
+            this.Pause.Name = "Pause";
+            this.Pause.Size = new System.Drawing.Size(104, 20);
+            this.Pause.TabIndex = 3;
+            this.Pause.Text = "Pause at end";
+            this.Pause.UseVisualStyleBackColor = true;
+            // 
+            // consoletoggle
+            // 
+            this.consoletoggle.AutoSize = true;
+            this.consoletoggle.Checked = true;
+            this.consoletoggle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.consoletoggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.consoletoggle.Location = new System.Drawing.Point(4, 52);
+            this.consoletoggle.Name = "consoletoggle";
+            this.consoletoggle.Size = new System.Drawing.Size(109, 20);
+            this.consoletoggle.TabIndex = 3;
+            this.consoletoggle.Text = "Show console";
+            this.consoletoggle.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -210,6 +250,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "PAPS";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -227,7 +268,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label appdatalabel;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label apppathlabel;
         private System.Windows.Forms.Button exepathbrowse;
         private System.Windows.Forms.TextBox exepath;
@@ -237,6 +277,10 @@
         private System.Windows.Forms.CheckBox Fbimode;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox Pause;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox DelayNum;
+        private System.Windows.Forms.CheckBox consoletoggle;
     }
 }
 
