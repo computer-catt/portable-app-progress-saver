@@ -258,7 +258,6 @@
             this.SaveSlot.Name = "SaveSlot";
             this.SaveSlot.Size = new System.Drawing.Size(100, 22);
             this.SaveSlot.TabIndex = 6;
-            this.SaveSlot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // Form1
             // 

@@ -61,7 +61,7 @@ namespace PAPS
         private void button1_Click(object sender, EventArgs e)
         {
             log(exepath.ForeColor == Color.Green ? "Exe path is valid." : "Exe path is not valid.");
-            log(appdatapath.ForeColor == Color.Green ? "App data path is valid." : "App data path not is valid.");
+            log(appdatapath.ForeColor == Color.Green ? "App data path is valid." : "App data path is not valid.");
             log("Replacing variables...");
             string appdatafolder = appdatapath.Text.Replace(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "%UserProfile%");
             string exepathv2 = exepath.Text.Replace(Directory.GetDirectoryRoot(exepath.Text), "%nyapath%");

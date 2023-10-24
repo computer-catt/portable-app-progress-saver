@@ -41,9 +41,8 @@ namespace PAPS
             else
             {
                 if (!Convert.ToBoolean(args[5]))
-                {
                     ShowWindow(GetConsoleWindow(), 0);
-                }
+
                 string exepath = args[0].Replace("%nyapath%", Directory.GetDirectoryRoot(Directory.GetCurrentDirectory()));
                 string appdatapath = args[1];
                 string appname = Functions.GetLastDirectoryName(appdatapath);
