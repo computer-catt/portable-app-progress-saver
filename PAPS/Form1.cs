@@ -25,10 +25,12 @@ namespace PAPS
         }
 
 
-        private string CreateShortcut(string exe, string path, string iconloc, string arguments)
+        private string CreateShortcut(string exe, string path, string iconloc, string arguments, string prefix = "")
         {
+            if (prefix.Length != 0)
+                prefix += " ";
             IWshRuntimeLibrary.WshShell shell = new IWshRuntimeLibrary.WshShell();
-            string shortcutpath = path + "\\" + Functions.GetLastDirectoryName(iconloc).Split('.')[0] + ".lnk";
+            string shortcutpath = path + "\\" + prefix + Functions.GetLastDirectoryName(iconloc).Split('.')[0] + ".lnk";
             IWshRuntimeLibrary.IWshShortcut shortcut = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(shortcutpath);
             shortcut.Arguments = arguments;
             shortcut.TargetPath = exe;
@@ -60,35 +62,29 @@ namespace PAPS
         {
             log(exepath.ForeColor == Color.Green ? "Exe path is valid." : "Exe path is not valid.");
             log(appdatapath.ForeColor == Color.Green ? "App data path is valid." : "App data path not is valid.");
-            log("Delete files after app close: " + Fbimode.Checked);
             log("Replacing variables...");
             string appdatafolder = appdatapath.Text.Replace(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "%UserProfile%");
             string exepathv2 = exepath.Text.Replace(Directory.GetDirectoryRoot(exepath.Text), "%nyapath%");
             log("creating shortcut");
-            string[] arguments = 
-                { 
+            string[] arguments =
+                {
                 exepathv2,
                 appdatafolder,
                 Fbimode.Checked.ToString(),
                 DelayNum.Text,
                 Pause.Checked.ToString(),
-                consoletoggle.Checked.ToString()
+                consoletoggle.Checked.ToString(),
+                SaveSlot.Text
                 };
 
             string args = "";
             foreach (string arg in arguments)
-            {
-                args += "\""+ arg + "\" ";
-            }
+                args += "\"" + arg + "\" ";
 
-            if (File.Exists(CreateShortcut(Path.GetFullPath(Process.GetCurrentProcess().ProcessName), Path.GetDirectoryName(exepath.Text), exepath.Text, args)))
-            {
+            if (File.Exists(CreateShortcut(Path.GetFullPath(Process.GetCurrentProcess().ProcessName), Path.GetDirectoryName(exepath.Text), exepath.Text, args, SaveSlot.Text)))
                 log("shortcut created");
-            }
             else
-            {
                 log("error occured creating shortcut and shortcut wasnt created");
-            }
             log("Process has finished.");
         }
 

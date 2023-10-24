@@ -45,6 +45,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Pause = new System.Windows.Forms.CheckBox();
             this.consoletoggle = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SaveSlot = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -174,6 +176,8 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.SaveSlot);
             this.panel2.Controls.Add(this.DelayNum);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button1);
@@ -239,6 +243,23 @@
             this.consoletoggle.Text = "Show console";
             this.consoletoggle.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Save slot:";
+            // 
+            // SaveSlot
+            // 
+            this.SaveSlot.Location = new System.Drawing.Point(4, 139);
+            this.SaveSlot.Name = "SaveSlot";
+            this.SaveSlot.Size = new System.Drawing.Size(100, 22);
+            this.SaveSlot.TabIndex = 6;
+            this.SaveSlot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -281,6 +302,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox DelayNum;
         private System.Windows.Forms.CheckBox consoletoggle;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox SaveSlot;
     }
 }
 

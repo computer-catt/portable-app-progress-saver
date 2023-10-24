@@ -21,6 +21,16 @@ namespace PAPS
         [STAThread]
         static void Main(string[] args)
         {
+
+
+            //0: exe path
+            //1: app data folder
+            //2: delete toggle
+            //3: delay
+            //4: pause toggle
+            //5: console sight toggle
+            //6: save slot
+
             if (args.Length == 0)
             {
                 Application.EnableVisualStyles();
@@ -39,7 +49,7 @@ namespace PAPS
                 string appname = Functions.GetLastDirectoryName(appdatapath);
                 string appdatalocation = appdatapath.Replace(appname, "");
                 string root = Path.GetDirectoryName(exepath);
-                string backupfolder = root + @"\portable\" + appname;
+                string backupfolder = root + @"\portable\" + appname + args[6];
                 Console.WriteLine("exe: " + exepath);
                 Console.WriteLine("app data path: " + appdatapath);
                 Console.WriteLine("app name: " + appname);
