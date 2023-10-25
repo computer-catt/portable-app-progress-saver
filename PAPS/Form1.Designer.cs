@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.TF2Man = new System.Windows.Forms.PictureBox();
+            this.GeneralLog = new System.Windows.Forms.RichTextBox();
+            this.Directories = new System.Windows.Forms.Panel();
             this.appdatapathbrowse = new System.Windows.Forms.Button();
             this.exepathbrowse = new System.Windows.Forms.Button();
             this.appdatapath = new System.Windows.Forms.TextBox();
@@ -39,61 +39,69 @@
             this.apppathlabel = new System.Windows.Forms.Label();
             this.openfile = new System.Windows.Forms.OpenFileDialog();
             this.Fbimode = new System.Windows.Forms.CheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.DelayNum = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Pause = new System.Windows.Forms.CheckBox();
-            this.consoletoggle = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.blacklist = new System.Windows.Forms.TextBox();
+            this.fetchlist = new System.Windows.Forms.ListBox();
+            this.ScannerButton = new System.Windows.Forms.Button();
+            this.SaveSlotLabel = new System.Windows.Forms.Label();
+            this.fetchpath = new System.Windows.Forms.TextBox();
             this.SaveSlot = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.DelayNum = new System.Windows.Forms.TextBox();
+            this.DelayLabel = new System.Windows.Forms.Label();
+            this.Generate = new System.Windows.Forms.Button();
+            this.consoletoggle = new System.Windows.Forms.CheckBox();
+            this.Pause = new System.Windows.Forms.CheckBox();
+            this.Tabs = new System.Windows.Forms.TabControl();
+            this.Settingstab = new System.Windows.Forms.TabPage();
+            this.Logtab = new System.Windows.Forms.TabPage();
+            ((System.ComponentModel.ISupportInitialize)(this.TF2Man)).BeginInit();
+            this.Directories.SuspendLayout();
+            this.SettingsPanel.SuspendLayout();
+            this.Tabs.SuspendLayout();
+            this.Settingstab.SuspendLayout();
+            this.Logtab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // TF2Man
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(97, 95);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.TF2Man.BackColor = System.Drawing.SystemColors.Control;
+            this.TF2Man.Location = new System.Drawing.Point(6, 6);
+            this.TF2Man.Name = "TF2Man";
+            this.TF2Man.Size = new System.Drawing.Size(97, 95);
+            this.TF2Man.TabIndex = 0;
+            this.TF2Man.TabStop = false;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 113);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(665, 290);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.GeneralLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GeneralLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GeneralLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GeneralLog.Location = new System.Drawing.Point(3, 3);
+            this.GeneralLog.Name = "richTextBox1";
+            this.GeneralLog.Size = new System.Drawing.Size(786, 378);
+            this.GeneralLog.TabIndex = 1;
+            this.GeneralLog.Text = "This is where the log is going to show up once you make a shortcut.\n";
             // 
-            // panel1
+            // Directories
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Directories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.appdatapathbrowse);
-            this.panel1.Controls.Add(this.exepathbrowse);
-            this.panel1.Controls.Add(this.appdatapath);
-            this.panel1.Controls.Add(this.exepath);
-            this.panel1.Controls.Add(this.appdatalabel);
-            this.panel1.Controls.Add(this.apppathlabel);
-            this.panel1.Location = new System.Drawing.Point(115, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(673, 95);
-            this.panel1.TabIndex = 2;
+            this.Directories.Controls.Add(this.appdatapathbrowse);
+            this.Directories.Controls.Add(this.exepathbrowse);
+            this.Directories.Controls.Add(this.appdatapath);
+            this.Directories.Controls.Add(this.exepath);
+            this.Directories.Controls.Add(this.appdatalabel);
+            this.Directories.Controls.Add(this.apppathlabel);
+            this.Directories.Location = new System.Drawing.Point(109, 6);
+            this.Directories.Name = "Directories";
+            this.Directories.Size = new System.Drawing.Size(677, 95);
+            this.Directories.TabIndex = 2;
             // 
             // appdatapathbrowse
             // 
             this.appdatapathbrowse.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.appdatapathbrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.appdatapathbrowse.Location = new System.Drawing.Point(583, 43);
+            this.appdatapathbrowse.Location = new System.Drawing.Point(587, 43);
             this.appdatapathbrowse.Name = "appdatapathbrowse";
             this.appdatapathbrowse.Size = new System.Drawing.Size(75, 31);
             this.appdatapathbrowse.TabIndex = 3;
@@ -105,7 +113,7 @@
             // 
             this.exepathbrowse.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.exepathbrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exepathbrowse.Location = new System.Drawing.Point(583, 6);
+            this.exepathbrowse.Location = new System.Drawing.Point(587, 6);
             this.exepathbrowse.Name = "exepathbrowse";
             this.exepathbrowse.Size = new System.Drawing.Size(75, 31);
             this.exepathbrowse.TabIndex = 3;
@@ -120,7 +128,7 @@
             this.appdatapath.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appdatapath.Location = new System.Drawing.Point(132, 43);
             this.appdatapath.Name = "appdatapath";
-            this.appdatapath.Size = new System.Drawing.Size(450, 31);
+            this.appdatapath.Size = new System.Drawing.Size(454, 31);
             this.appdatapath.TabIndex = 4;
             this.appdatapath.TextChanged += new System.EventHandler(this.appdatapath_TextChanged);
             // 
@@ -131,7 +139,7 @@
             this.exepath.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exepath.Location = new System.Drawing.Point(106, 6);
             this.exepath.Name = "exepath";
-            this.exepath.Size = new System.Drawing.Size(476, 31);
+            this.exepath.Size = new System.Drawing.Size(480, 31);
             this.exepath.TabIndex = 4;
             this.exepath.TextChanged += new System.EventHandler(this.exepath_TextChanged);
             // 
@@ -163,101 +171,196 @@
             // 
             // Fbimode
             // 
+            this.Fbimode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Fbimode.AutoSize = true;
             this.Fbimode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Fbimode.Location = new System.Drawing.Point(4, 3);
+            this.Fbimode.Location = new System.Drawing.Point(666, 124);
             this.Fbimode.Name = "Fbimode";
             this.Fbimode.Size = new System.Drawing.Size(97, 20);
             this.Fbimode.TabIndex = 3;
             this.Fbimode.Text = "Delete Files";
             this.Fbimode.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // SettingsPanel
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.SettingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.SaveSlot);
-            this.panel2.Controls.Add(this.DelayNum);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.consoletoggle);
-            this.panel2.Controls.Add(this.Pause);
-            this.panel2.Controls.Add(this.Fbimode);
-            this.panel2.Location = new System.Drawing.Point(683, 113);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(105, 290);
-            this.panel2.TabIndex = 4;
+            this.SettingsPanel.Controls.Add(this.blacklist);
+            this.SettingsPanel.Controls.Add(this.fetchlist);
+            this.SettingsPanel.Controls.Add(this.ScannerButton);
+            this.SettingsPanel.Controls.Add(this.SaveSlotLabel);
+            this.SettingsPanel.Controls.Add(this.fetchpath);
+            this.SettingsPanel.Controls.Add(this.SaveSlot);
+            this.SettingsPanel.Controls.Add(this.DelayNum);
+            this.SettingsPanel.Controls.Add(this.DelayLabel);
+            this.SettingsPanel.Controls.Add(this.Generate);
+            this.SettingsPanel.Controls.Add(this.consoletoggle);
+            this.SettingsPanel.Controls.Add(this.Pause);
+            this.SettingsPanel.Controls.Add(this.Fbimode);
+            this.SettingsPanel.Location = new System.Drawing.Point(8, 107);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Size = new System.Drawing.Size(778, 269);
+            this.SettingsPanel.TabIndex = 4;
+            // 
+            // blacklist
+            // 
+            this.blacklist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.blacklist.BackColor = System.Drawing.Color.Black;
+            this.blacklist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.blacklist.ForeColor = System.Drawing.Color.Red;
+            this.blacklist.Location = new System.Drawing.Point(3, 46);
+            this.blacklist.Multiline = true;
+            this.blacklist.Name = "blacklist";
+            this.blacklist.Size = new System.Drawing.Size(315, 23);
+            this.blacklist.TabIndex = 8;
+            // 
+            // fetchlist
+            // 
+            this.fetchlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fetchlist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.fetchlist.FormattingEnabled = true;
+            this.fetchlist.ItemHeight = 16;
+            this.fetchlist.Location = new System.Drawing.Point(3, 75);
+            this.fetchlist.Name = "fetchlist";
+            this.fetchlist.Size = new System.Drawing.Size(315, 176);
+            this.fetchlist.TabIndex = 5;
+            this.fetchlist.SelectedIndexChanged += new System.EventHandler(this.fetchlist_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.ScannerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ScannerButton.Location = new System.Drawing.Point(176, 19);
+            this.ScannerButton.Name = "button1";
+            this.ScannerButton.Size = new System.Drawing.Size(142, 23);
+            this.ScannerButton.TabIndex = 7;
+            this.ScannerButton.Text = "Fetch data from app";
+            this.ScannerButton.UseVisualStyleBackColor = true;
+            this.ScannerButton.Click += new System.EventHandler(this.ScannerButton_Click);
+            // 
+            // SaveSlotLabel
+            // 
+            this.SaveSlotLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveSlotLabel.AutoSize = true;
+            this.SaveSlotLabel.Location = new System.Drawing.Point(668, 56);
+            this.SaveSlotLabel.Name = "SaveSlotLabel";
+            this.SaveSlotLabel.Size = new System.Drawing.Size(66, 16);
+            this.SaveSlotLabel.TabIndex = 5;
+            this.SaveSlotLabel.Text = "Save slot:";
+            // 
+            // fetchpath
+            // 
+            this.fetchpath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fetchpath.Location = new System.Drawing.Point(3, 19);
+            this.fetchpath.Name = "fetchpath";
+            this.fetchpath.Size = new System.Drawing.Size(174, 22);
+            this.fetchpath.TabIndex = 6;
+            // 
+            // SaveSlot
+            // 
+            this.SaveSlot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveSlot.Location = new System.Drawing.Point(669, 75);
+            this.SaveSlot.Name = "SaveSlot";
+            this.SaveSlot.Size = new System.Drawing.Size(100, 22);
+            this.SaveSlot.TabIndex = 6;
             // 
             // DelayNum
             // 
-            this.DelayNum.Location = new System.Drawing.Point(3, 95);
+            this.DelayNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelayNum.Location = new System.Drawing.Point(668, 31);
             this.DelayNum.Name = "DelayNum";
             this.DelayNum.Size = new System.Drawing.Size(100, 22);
             this.DelayNum.TabIndex = 6;
             this.DelayNum.Text = "2000";
-            this.DelayNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.DelayNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DelayNum_KeyPress);
             // 
-            // label1
+            // DelayLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Delay (ms):";
+            this.DelayLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelayLabel.AutoSize = true;
+            this.DelayLabel.Location = new System.Drawing.Point(668, 12);
+            this.DelayLabel.Name = "DelayLabel";
+            this.DelayLabel.Size = new System.Drawing.Size(75, 16);
+            this.DelayLabel.TabIndex = 5;
+            this.DelayLabel.Text = "Delay (ms):";
             // 
-            // button1
+            // Generate
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 241);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 46);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Generate file(s)";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Pause
-            // 
-            this.Pause.AutoSize = true;
-            this.Pause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pause.Location = new System.Drawing.Point(4, 26);
-            this.Pause.Name = "Pause";
-            this.Pause.Size = new System.Drawing.Size(104, 20);
-            this.Pause.TabIndex = 3;
-            this.Pause.Text = "Pause at end";
-            this.Pause.UseVisualStyleBackColor = true;
+            this.Generate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Generate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Generate.Location = new System.Drawing.Point(671, 220);
+            this.Generate.Name = "Generate";
+            this.Generate.Size = new System.Drawing.Size(99, 46);
+            this.Generate.TabIndex = 5;
+            this.Generate.Text = "Generate file(s)";
+            this.Generate.UseVisualStyleBackColor = true;
+            this.Generate.Click += new System.EventHandler(this.Generate_Click);
             // 
             // consoletoggle
             // 
+            this.consoletoggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.consoletoggle.AutoSize = true;
             this.consoletoggle.Checked = true;
             this.consoletoggle.CheckState = System.Windows.Forms.CheckState.Checked;
             this.consoletoggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.consoletoggle.Location = new System.Drawing.Point(4, 52);
+            this.consoletoggle.Location = new System.Drawing.Point(666, 173);
             this.consoletoggle.Name = "consoletoggle";
             this.consoletoggle.Size = new System.Drawing.Size(109, 20);
             this.consoletoggle.TabIndex = 3;
             this.consoletoggle.Text = "Show console";
             this.consoletoggle.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // Pause
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 16);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Save slot:";
+            this.Pause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pause.AutoSize = true;
+            this.Pause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Pause.Location = new System.Drawing.Point(666, 147);
+            this.Pause.Name = "Pause";
+            this.Pause.Size = new System.Drawing.Size(104, 20);
+            this.Pause.TabIndex = 3;
+            this.Pause.Text = "Pause at end";
+            this.Pause.UseVisualStyleBackColor = true;
             // 
-            // SaveSlot
+            // Tabs
             // 
-            this.SaveSlot.Location = new System.Drawing.Point(4, 139);
-            this.SaveSlot.Name = "SaveSlot";
-            this.SaveSlot.Size = new System.Drawing.Size(100, 22);
-            this.SaveSlot.TabIndex = 6;
+            this.Tabs.Controls.Add(this.Settingstab);
+            this.Tabs.Controls.Add(this.Logtab);
+            this.Tabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tabs.HotTrack = true;
+            this.Tabs.Location = new System.Drawing.Point(0, 0);
+            this.Tabs.Name = "Tabs";
+            this.Tabs.SelectedIndex = 0;
+            this.Tabs.Size = new System.Drawing.Size(800, 413);
+            this.Tabs.TabIndex = 5;
+            // 
+            // Settingstab
+            // 
+            this.Settingstab.BackColor = System.Drawing.SystemColors.Control;
+            this.Settingstab.Controls.Add(this.SettingsPanel);
+            this.Settingstab.Controls.Add(this.Directories);
+            this.Settingstab.Controls.Add(this.TF2Man);
+            this.Settingstab.Location = new System.Drawing.Point(4, 25);
+            this.Settingstab.Name = "Settingstab";
+            this.Settingstab.Padding = new System.Windows.Forms.Padding(3);
+            this.Settingstab.Size = new System.Drawing.Size(792, 384);
+            this.Settingstab.TabIndex = 0;
+            this.Settingstab.Text = "Settings";
+            // 
+            // Logtab
+            // 
+            this.Logtab.BackColor = System.Drawing.SystemColors.Control;
+            this.Logtab.Controls.Add(this.GeneralLog);
+            this.Logtab.Location = new System.Drawing.Point(4, 25);
+            this.Logtab.Name = "Logtab";
+            this.Logtab.Padding = new System.Windows.Forms.Padding(3);
+            this.Logtab.Size = new System.Drawing.Size(792, 384);
+            this.Logtab.TabIndex = 1;
+            this.Logtab.Text = "Log";
             // 
             // Form1
             // 
@@ -265,28 +368,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(800, 413);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Tabs);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "PAPS";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TF2Man)).EndInit();
+            this.Directories.ResumeLayout(false);
+            this.Directories.PerformLayout();
+            this.SettingsPanel.ResumeLayout(false);
+            this.SettingsPanel.PerformLayout();
+            this.Tabs.ResumeLayout(false);
+            this.Settingstab.ResumeLayout(false);
+            this.Logtab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox TF2Man;
+        private System.Windows.Forms.RichTextBox GeneralLog;
+        private System.Windows.Forms.Panel Directories;
         private System.Windows.Forms.Label appdatalabel;
         private System.Windows.Forms.Label apppathlabel;
         private System.Windows.Forms.Button exepathbrowse;
@@ -295,14 +398,21 @@
         private System.Windows.Forms.TextBox appdatapath;
         private System.Windows.Forms.OpenFileDialog openfile;
         private System.Windows.Forms.CheckBox Fbimode;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.Button Generate;
         private System.Windows.Forms.CheckBox Pause;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label DelayLabel;
         private System.Windows.Forms.TextBox DelayNum;
         private System.Windows.Forms.CheckBox consoletoggle;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label SaveSlotLabel;
         private System.Windows.Forms.TextBox SaveSlot;
+        private System.Windows.Forms.TabControl Tabs;
+        private System.Windows.Forms.TabPage Settingstab;
+        private System.Windows.Forms.TabPage Logtab;
+        private System.Windows.Forms.Button ScannerButton;
+        private System.Windows.Forms.TextBox fetchpath;
+        private System.Windows.Forms.ListBox fetchlist;
+        private System.Windows.Forms.TextBox blacklist;
     }
 }
 

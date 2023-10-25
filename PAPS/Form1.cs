@@ -14,13 +14,15 @@ namespace PAPS
         {
             try
             {
-                pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-                pictureBox1.BackgroundImage = Bitmap.FromStream(WebRequest.Create("https://cdn.discordapp.com/attachments/1104813377836036237/1164212783307571350/IMG_1945.jpg").GetResponse().GetResponseStream());
+                TF2Man.BackgroundImageLayout = ImageLayout.Zoom;
+                TF2Man.BackgroundImage = Bitmap.FromStream(WebRequest.Create("https://cdn.discordapp.com/attachments/1104813377836036237/1164212783307571350/IMG_1945.jpg").GetResponse().GetResponseStream());
             }
             catch 
             {
-                pictureBox1.Hide();
-                panel1.Location = pictureBox1.Location;
+
+                Directories.Width += TF2Man.Width;
+                TF2Man.Hide();
+                Directories.Location = TF2Man.Location;
             }
         }
 
@@ -53,21 +55,22 @@ namespace PAPS
                 Multiselect = false
             };
             if (openfolder.ShowDialog(IntPtr.Zero) == true)
-            {
                 appdatapath.Text = openfolder.ResultPath;
-            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Generate_Click(object sender, EventArgs e)
         {
-            log(exepath.ForeColor == Color.Green ? "Exe path is valid." : "Exe path is not valid.");
-            log(appdatapath.ForeColor == Color.Green ? "App data path is valid." : "App data path is not valid.");
-            log("Replacing variables...");
-            string appdatafolder = appdatapath.Text.Replace(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "%UserProfile%");
-            string exepathv2 = exepath.Text.Replace(Directory.GetDirectoryRoot(exepath.Text), "%nyapath%");
-            log("creating shortcut");
-            string[] arguments =
-                {
+            try
+            {
+                Tabs.SelectedTab = Logtab;
+                log(exepath.ForeColor == Color.Green ? "Exe path is valid." : "Exe path is not valid.");
+                log(appdatapath.ForeColor == Color.Green ? "App data path is valid." : "App data path is not valid.");
+                log("Replacing variables...");
+                string appdatafolder = appdatapath.Text.Replace(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "%UserProfile%");
+                string exepathv2 = exepath.Text.Replace(Directory.GetDirectoryRoot(exepath.Text), "%nyapath%");
+                log("creating shortcut");
+                string[] arguments =
+                    {
                 exepathv2,
                 appdatafolder,
                 Fbimode.Checked.ToString(),
@@ -77,43 +80,109 @@ namespace PAPS
                 SaveSlot.Text
                 };
 
-            string args = "";
-            foreach (string arg in arguments)
-                args += "\"" + arg + "\" ";
+                string args = "";
+                foreach (string arg in arguments)
+                    args += "\"" + arg + "\" ";
 
-            if (File.Exists(CreateShortcut(Path.GetFullPath(Process.GetCurrentProcess().ProcessName), Path.GetDirectoryName(exepath.Text), exepath.Text, args, SaveSlot.Text)))
-                log("shortcut created");
-            else
-                log("error occured creating shortcut and shortcut wasnt created");
-            log("Process has finished.");
+                if (File.Exists(CreateShortcut(Path.GetFullPath(Process.GetCurrentProcess().ProcessName), Path.GetDirectoryName(exepath.Text), exepath.Text, args, SaveSlot.Text)))
+                    log("shortcut created");
+                else
+                    log("error occured creating shortcut and shortcut wasnt created");
+                log("Process has finished.");
+            }
+            catch (Exception error)
+            {
+                log(error.ToString());
+            }
         }
 
 
-        void log(string text)
-        {
-            richTextBox1.Text += text + "\n";
-        }
+        void log(string text) => GeneralLog.Text += text + "\n";
 
         private void exepath_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(exepath.Text))
-            {
                 exepath.ForeColor = File.Exists(exepath.Text) ? Color.Green : Color.Red;
-            }
         }
 
         private void appdatapath_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(appdatapath.Text))
-            {
                 appdatapath.ForeColor = Directory.Exists(appdatapath.Text) ? Color.Green : Color.Red;
-            }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void DelayNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        bool scanon;
+
+        private void ScannerButton_Click(object sender, EventArgs e)
+        {
+            if (scanon)
+            {
+                foreach (Process thing in Process.GetProcessesByName(Path.GetFileName(exepath.Text)))
+                    thing.Kill();
+                scanon = false;
+
+                ScannerButton.FlatStyle = FlatStyle.Standard;
+                ScannerButton.BackColor = SystemColors.Control;
+                ScannerButton.ForeColor = SystemColors.ControlText;
+                ScannerButton.Text = "Fetch data from app";
+
+            }
+            else
+            {
+                FileSystemWatcher watcher = new FileSystemWatcher();
+                watcher.Path = Environment.ExpandEnvironmentVariables(fetchpath.Text);
+                watcher.NotifyFilter = NotifyFilters.Attributes
+                                     | NotifyFilters.CreationTime
+                                     | NotifyFilters.DirectoryName
+                                     | NotifyFilters.FileName
+                                     | NotifyFilters.LastAccess
+                                     | NotifyFilters.LastWrite
+                                     | NotifyFilters.Security
+                                     | NotifyFilters.Size;
+                watcher.EnableRaisingEvents = true;
+                watcher.IncludeSubdirectories = true;
+                watcher.Created += Watcher_event;
+                watcher.Deleted += Watcher_event;
+                watcher.Renamed += Watcher_event;
+                watcher.Changed += Watcher_event;
+                if (exepath.ForeColor == Color.Green)
+                {
+                    Process application = new Process();
+                    application.StartInfo.WorkingDirectory = Path.GetDirectoryName(exepath.Text);
+                    application.StartInfo.FileName = Path.GetFileName(exepath.Text);
+                    application.Start();
+                }
+                scanon = true;
+                ScannerButton.FlatStyle = FlatStyle.Flat;
+                ScannerButton.BackColor = Color.Black;
+                ScannerButton.ForeColor = Color.Red;
+                ScannerButton.Text = "Stop";
+            }
+        }
+
+        private void Watcher_event(object sender, FileSystemEventArgs e)
+        {
+            bool log = true;
+            foreach (string blacklisted in blacklist.Text.Split('\n'))
+                if (blacklisted.Trim().Length > 0)
+                    if (e.FullPath.Contains(blacklisted.Trim()))
+                        log = false;
+            if (log)
+            {
+                fetchlist.Items.Add(e.FullPath + " - " + e.ChangeType);
+                fetchlist.TopIndex = fetchlist.Items.Count - 1;
+            }
+        }
+
+        private void fetchlist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            appdatapath.Text = Path.GetDirectoryName(fetchlist.SelectedItem.ToString().Split('-')[0]);
         }
     }
 }

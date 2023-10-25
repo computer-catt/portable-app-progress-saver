@@ -69,7 +69,6 @@ namespace PAPS
                         Directory.Delete(appdatapath, true);
                     Functions.CopyFilesRecursively(backupfolder, appdatapath);
                 }
-                Thread.Sleep(500);
                 Console.WriteLine("starting: " + Functions.GetLastDirectoryName(exepath));
                 Process asparagus = new Process();
                 asparagus.StartInfo.FileName = exepath;
