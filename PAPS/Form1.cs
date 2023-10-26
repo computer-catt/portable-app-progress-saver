@@ -82,7 +82,7 @@ namespace PAPS
 
                 string args = "";
                 foreach (string arg in arguments)
-                    args += "\"" + arg + "\" ";
+                    args += "\"" + arg.TrimEnd('\\') + "\" ";
 
                 if (File.Exists(CreateShortcut(Path.GetFullPath(Process.GetCurrentProcess().ProcessName), Path.GetDirectoryName(exepath.Text), exepath.Text, args, SaveSlot.Text)))
                     log("shortcut created");
@@ -118,7 +118,6 @@ namespace PAPS
         }
 
         bool scanon;
-
         private void ScannerButton_Click(object sender, EventArgs e)
         {
             if (scanon)
@@ -126,11 +125,10 @@ namespace PAPS
                 foreach (Process thing in Process.GetProcessesByName(Path.GetFileName(exepath.Text)))
                     thing.Kill();
                 scanon = false;
-
                 ScannerButton.FlatStyle = FlatStyle.Standard;
                 ScannerButton.BackColor = SystemColors.Control;
                 ScannerButton.ForeColor = SystemColors.ControlText;
-                ScannerButton.Text = "Fetch data from app";
+                ScannerButton.Text = "Run";
 
             }
             else
@@ -151,13 +149,14 @@ namespace PAPS
                 watcher.Deleted += Watcher_event;
                 watcher.Renamed += Watcher_event;
                 watcher.Changed += Watcher_event;
-                if (exepath.ForeColor == Color.Green)
-                {
-                    Process application = new Process();
-                    application.StartInfo.WorkingDirectory = Path.GetDirectoryName(exepath.Text);
-                    application.StartInfo.FileName = Path.GetFileName(exepath.Text);
-                    application.Start();
-                }
+                if (launchapptoggle.Checked)
+                    if (exepath.ForeColor == Color.Green)
+                    {
+                        Process application = new Process();
+                        application.StartInfo.WorkingDirectory = Path.GetDirectoryName(exepath.Text);
+                        application.StartInfo.FileName = Path.GetFileName(exepath.Text);
+                        application.Start();
+                    }
                 scanon = true;
                 ScannerButton.FlatStyle = FlatStyle.Flat;
                 ScannerButton.BackColor = Color.Black;
@@ -172,7 +171,10 @@ namespace PAPS
             foreach (string blacklisted in blacklist.Text.Split('\n'))
                 if (blacklisted.Trim().Length > 0)
                     if (e.FullPath.Contains(blacklisted.Trim()))
+                    {
                         log = false;
+                        break;
+                    }
             if (log)
             {
                 fetchlist.Items.Add(e.FullPath + " - " + e.ChangeType);
@@ -182,7 +184,21 @@ namespace PAPS
 
         private void fetchlist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            appdatapath.Text = Path.GetDirectoryName(fetchlist.SelectedItem.ToString().Split('-')[0]);
+            string tempy = Path.GetDirectoryName(fetchlist.Text.ToString().Split('-')[0]);
+            if (modetoggle.Text.Contains("Apply"))
+            {
+                Tabs.SelectedTab = Settingstab;
+                appdatapath.Text = tempy;
+            }
+            else
+                Clipboard.SetText(tempy);
+        }
+
+        private void ADLshortcut_Click(object sender, EventArgs e) => Tabs.SelectedTab = Loggertab;
+
+        private void modetoggle_Click(object sender, EventArgs e)
+        {
+            modetoggle.Text = modetoggle.Text.Contains("Apply") ? "Mode: Copy" : "Mode: Apply";
         }
     }
 }

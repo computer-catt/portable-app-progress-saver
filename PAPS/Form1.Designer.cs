@@ -40,11 +40,8 @@
             this.openfile = new System.Windows.Forms.OpenFileDialog();
             this.Fbimode = new System.Windows.Forms.CheckBox();
             this.SettingsPanel = new System.Windows.Forms.Panel();
-            this.blacklist = new System.Windows.Forms.TextBox();
-            this.fetchlist = new System.Windows.Forms.ListBox();
-            this.ScannerButton = new System.Windows.Forms.Button();
+            this.ADLshortcut = new System.Windows.Forms.Button();
             this.SaveSlotLabel = new System.Windows.Forms.Label();
-            this.fetchpath = new System.Windows.Forms.TextBox();
             this.SaveSlot = new System.Windows.Forms.TextBox();
             this.DelayNum = new System.Windows.Forms.TextBox();
             this.DelayLabel = new System.Windows.Forms.Label();
@@ -53,12 +50,23 @@
             this.Pause = new System.Windows.Forms.CheckBox();
             this.Tabs = new System.Windows.Forms.TabControl();
             this.Settingstab = new System.Windows.Forms.TabPage();
+            this.Loggertab = new System.Windows.Forms.TabPage();
+            this.launchapptoggle = new System.Windows.Forms.CheckBox();
+            this.Blacklistlabel = new System.Windows.Forms.Label();
+            this.ScanpathLabel = new System.Windows.Forms.Label();
+            this.blacklist = new System.Windows.Forms.TextBox();
+            this.fetchlist = new System.Windows.Forms.ListBox();
+            this.ScannerButton = new System.Windows.Forms.Button();
+            this.fetchpath = new System.Windows.Forms.TextBox();
             this.Logtab = new System.Windows.Forms.TabPage();
+            this.modetoggle = new System.Windows.Forms.Button();
+            this.settingstogglelabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TF2Man)).BeginInit();
             this.Directories.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.Tabs.SuspendLayout();
             this.Settingstab.SuspendLayout();
+            this.Loggertab.SuspendLayout();
             this.Logtab.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,13 +79,13 @@
             this.TF2Man.TabIndex = 0;
             this.TF2Man.TabStop = false;
             // 
-            // richTextBox1
+            // GeneralLog
             // 
             this.GeneralLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GeneralLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GeneralLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GeneralLog.Location = new System.Drawing.Point(3, 3);
-            this.GeneralLog.Name = "richTextBox1";
+            this.GeneralLog.Name = "GeneralLog";
             this.GeneralLog.Size = new System.Drawing.Size(786, 378);
             this.GeneralLog.TabIndex = 1;
             this.GeneralLog.Text = "This is where the log is going to show up once you make a shortcut.\n";
@@ -186,11 +194,8 @@
             this.SettingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SettingsPanel.Controls.Add(this.blacklist);
-            this.SettingsPanel.Controls.Add(this.fetchlist);
-            this.SettingsPanel.Controls.Add(this.ScannerButton);
+            this.SettingsPanel.Controls.Add(this.ADLshortcut);
             this.SettingsPanel.Controls.Add(this.SaveSlotLabel);
-            this.SettingsPanel.Controls.Add(this.fetchpath);
             this.SettingsPanel.Controls.Add(this.SaveSlot);
             this.SettingsPanel.Controls.Add(this.DelayNum);
             this.SettingsPanel.Controls.Add(this.DelayLabel);
@@ -203,43 +208,15 @@
             this.SettingsPanel.Size = new System.Drawing.Size(778, 269);
             this.SettingsPanel.TabIndex = 4;
             // 
-            // blacklist
+            // ADLshortcut
             // 
-            this.blacklist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.blacklist.BackColor = System.Drawing.Color.Black;
-            this.blacklist.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.blacklist.ForeColor = System.Drawing.Color.Red;
-            this.blacklist.Location = new System.Drawing.Point(3, 46);
-            this.blacklist.Multiline = true;
-            this.blacklist.Name = "blacklist";
-            this.blacklist.Size = new System.Drawing.Size(315, 23);
-            this.blacklist.TabIndex = 8;
-            // 
-            // fetchlist
-            // 
-            this.fetchlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fetchlist.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fetchlist.FormattingEnabled = true;
-            this.fetchlist.ItemHeight = 16;
-            this.fetchlist.Location = new System.Drawing.Point(3, 75);
-            this.fetchlist.Name = "fetchlist";
-            this.fetchlist.Size = new System.Drawing.Size(315, 176);
-            this.fetchlist.TabIndex = 5;
-            this.fetchlist.SelectedIndexChanged += new System.EventHandler(this.fetchlist_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.ScannerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScannerButton.Location = new System.Drawing.Point(176, 19);
-            this.ScannerButton.Name = "button1";
-            this.ScannerButton.Size = new System.Drawing.Size(142, 23);
-            this.ScannerButton.TabIndex = 7;
-            this.ScannerButton.Text = "Fetch data from app";
-            this.ScannerButton.UseVisualStyleBackColor = true;
-            this.ScannerButton.Click += new System.EventHandler(this.ScannerButton_Click);
+            this.ADLshortcut.Location = new System.Drawing.Point(3, 5);
+            this.ADLshortcut.Name = "ADLshortcut";
+            this.ADLshortcut.Size = new System.Drawing.Size(118, 27);
+            this.ADLshortcut.TabIndex = 7;
+            this.ADLshortcut.Text = "App data logger";
+            this.ADLshortcut.UseVisualStyleBackColor = true;
+            this.ADLshortcut.Click += new System.EventHandler(this.ADLshortcut_Click);
             // 
             // SaveSlotLabel
             // 
@@ -250,15 +227,6 @@
             this.SaveSlotLabel.Size = new System.Drawing.Size(66, 16);
             this.SaveSlotLabel.TabIndex = 5;
             this.SaveSlotLabel.Text = "Save slot:";
-            // 
-            // fetchpath
-            // 
-            this.fetchpath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fetchpath.Location = new System.Drawing.Point(3, 19);
-            this.fetchpath.Name = "fetchpath";
-            this.fetchpath.Size = new System.Drawing.Size(174, 22);
-            this.fetchpath.TabIndex = 6;
             // 
             // SaveSlot
             // 
@@ -329,6 +297,7 @@
             // Tabs
             // 
             this.Tabs.Controls.Add(this.Settingstab);
+            this.Tabs.Controls.Add(this.Loggertab);
             this.Tabs.Controls.Add(this.Logtab);
             this.Tabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Tabs.HotTrack = true;
@@ -351,6 +320,109 @@
             this.Settingstab.TabIndex = 0;
             this.Settingstab.Text = "Settings";
             // 
+            // Loggertab
+            // 
+            this.Loggertab.BackColor = System.Drawing.SystemColors.Control;
+            this.Loggertab.Controls.Add(this.settingstogglelabel);
+            this.Loggertab.Controls.Add(this.modetoggle);
+            this.Loggertab.Controls.Add(this.launchapptoggle);
+            this.Loggertab.Controls.Add(this.Blacklistlabel);
+            this.Loggertab.Controls.Add(this.ScanpathLabel);
+            this.Loggertab.Controls.Add(this.blacklist);
+            this.Loggertab.Controls.Add(this.fetchlist);
+            this.Loggertab.Controls.Add(this.ScannerButton);
+            this.Loggertab.Controls.Add(this.fetchpath);
+            this.Loggertab.Location = new System.Drawing.Point(4, 25);
+            this.Loggertab.Name = "Loggertab";
+            this.Loggertab.Padding = new System.Windows.Forms.Padding(3);
+            this.Loggertab.Size = new System.Drawing.Size(792, 384);
+            this.Loggertab.TabIndex = 2;
+            this.Loggertab.Text = "App Data Logger";
+            // 
+            // launchapptoggle
+            // 
+            this.launchapptoggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.launchapptoggle.AutoSize = true;
+            this.launchapptoggle.Checked = true;
+            this.launchapptoggle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.launchapptoggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.launchapptoggle.Location = new System.Drawing.Point(673, 33);
+            this.launchapptoggle.Name = "launchapptoggle";
+            this.launchapptoggle.Size = new System.Drawing.Size(95, 20);
+            this.launchapptoggle.TabIndex = 15;
+            this.launchapptoggle.Text = "Launch app";
+            this.launchapptoggle.UseVisualStyleBackColor = true;
+            // 
+            // Blacklistlabel
+            // 
+            this.Blacklistlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Blacklistlabel.AutoSize = true;
+            this.Blacklistlabel.Location = new System.Drawing.Point(673, 94);
+            this.Blacklistlabel.Name = "Blacklistlabel";
+            this.Blacklistlabel.Size = new System.Drawing.Size(60, 16);
+            this.Blacklistlabel.TabIndex = 14;
+            this.Blacklistlabel.Text = "Blacklist:";
+            // 
+            // ScanpathLabel
+            // 
+            this.ScanpathLabel.AutoSize = true;
+            this.ScanpathLabel.Location = new System.Drawing.Point(6, 11);
+            this.ScanpathLabel.Name = "ScanpathLabel";
+            this.ScanpathLabel.Size = new System.Drawing.Size(70, 16);
+            this.ScanpathLabel.TabIndex = 13;
+            this.ScanpathLabel.Text = "Scan path:";
+            // 
+            // blacklist
+            // 
+            this.blacklist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.blacklist.BackColor = System.Drawing.Color.Black;
+            this.blacklist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.blacklist.ForeColor = System.Drawing.Color.Red;
+            this.blacklist.Location = new System.Drawing.Point(675, 113);
+            this.blacklist.Multiline = true;
+            this.blacklist.Name = "blacklist";
+            this.blacklist.Size = new System.Drawing.Size(117, 205);
+            this.blacklist.TabIndex = 12;
+            // 
+            // fetchlist
+            // 
+            this.fetchlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fetchlist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.fetchlist.FormattingEnabled = true;
+            this.fetchlist.ItemHeight = 16;
+            this.fetchlist.Location = new System.Drawing.Point(6, 58);
+            this.fetchlist.Name = "fetchlist";
+            this.fetchlist.Size = new System.Drawing.Size(661, 320);
+            this.fetchlist.TabIndex = 9;
+            this.fetchlist.SelectedIndexChanged += new System.EventHandler(this.fetchlist_SelectedIndexChanged);
+            // 
+            // ScannerButton
+            // 
+            this.ScannerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ScannerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScannerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScannerButton.Location = new System.Drawing.Point(672, 324);
+            this.ScannerButton.Name = "ScannerButton";
+            this.ScannerButton.Size = new System.Drawing.Size(117, 60);
+            this.ScannerButton.TabIndex = 11;
+            this.ScannerButton.Text = "Run";
+            this.ScannerButton.UseVisualStyleBackColor = true;
+            this.ScannerButton.Click += new System.EventHandler(this.ScannerButton_Click);
+            // 
+            // fetchpath
+            // 
+            this.fetchpath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fetchpath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fetchpath.Location = new System.Drawing.Point(6, 30);
+            this.fetchpath.Name = "fetchpath";
+            this.fetchpath.Size = new System.Drawing.Size(661, 22);
+            this.fetchpath.TabIndex = 10;
+            this.fetchpath.Text = "%appdata%";
+            // 
             // Logtab
             // 
             this.Logtab.BackColor = System.Drawing.SystemColors.Control;
@@ -362,6 +434,28 @@
             this.Logtab.TabIndex = 1;
             this.Logtab.Text = "Log";
             // 
+            // modetoggle
+            // 
+            this.modetoggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modetoggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modetoggle.Location = new System.Drawing.Point(673, 57);
+            this.modetoggle.Name = "modetoggle";
+            this.modetoggle.Size = new System.Drawing.Size(116, 28);
+            this.modetoggle.TabIndex = 16;
+            this.modetoggle.Text = "Mode: Apply";
+            this.modetoggle.UseVisualStyleBackColor = true;
+            this.modetoggle.Click += new System.EventHandler(this.modetoggle_Click);
+            // 
+            // settingstogglelabel
+            // 
+            this.settingstogglelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingstogglelabel.AutoSize = true;
+            this.settingstogglelabel.Location = new System.Drawing.Point(670, 11);
+            this.settingstogglelabel.Name = "settingstogglelabel";
+            this.settingstogglelabel.Size = new System.Drawing.Size(106, 16);
+            this.settingstogglelabel.TabIndex = 17;
+            this.settingstogglelabel.Text = "Settings toggles:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -369,6 +463,7 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(800, 413);
             this.Controls.Add(this.Tabs);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "PAPS";
@@ -380,6 +475,8 @@
             this.SettingsPanel.PerformLayout();
             this.Tabs.ResumeLayout(false);
             this.Settingstab.ResumeLayout(false);
+            this.Loggertab.ResumeLayout(false);
+            this.Loggertab.PerformLayout();
             this.Logtab.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -409,10 +506,17 @@
         private System.Windows.Forms.TabControl Tabs;
         private System.Windows.Forms.TabPage Settingstab;
         private System.Windows.Forms.TabPage Logtab;
+        private System.Windows.Forms.TabPage Loggertab;
+        private System.Windows.Forms.Button ADLshortcut;
+        private System.Windows.Forms.TextBox blacklist;
+        private System.Windows.Forms.ListBox fetchlist;
         private System.Windows.Forms.Button ScannerButton;
         private System.Windows.Forms.TextBox fetchpath;
-        private System.Windows.Forms.ListBox fetchlist;
-        private System.Windows.Forms.TextBox blacklist;
+        private System.Windows.Forms.Label Blacklistlabel;
+        private System.Windows.Forms.Label ScanpathLabel;
+        private System.Windows.Forms.CheckBox launchapptoggle;
+        private System.Windows.Forms.Button modetoggle;
+        private System.Windows.Forms.Label settingstogglelabel;
     }
 }
 
